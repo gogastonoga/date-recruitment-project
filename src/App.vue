@@ -1,17 +1,17 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <ReservationForm msg="Welcome to reservation form Asiek"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ReservationForm from '@/components/ReservationForm.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    ReservationForm
   }
 }
 </script>
