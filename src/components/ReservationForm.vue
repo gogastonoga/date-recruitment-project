@@ -1,8 +1,10 @@
 <script>
+import ReservationCalendar from './ReservationCalender.vue'
 
 export default {
   name: 'app',
   components: {
+    ReservationCalendar
   },
   props: {
     price: Number,
@@ -10,6 +12,20 @@ export default {
     votesNumber: Number,
     unavailableDates: Array,
     chosenDates: Array
+  },
+  data () {
+    return {
+      isModalVisible: false
+    }
+  },
+  methods: {
+    showModal () {
+      this.isModalVisible = true
+      this.$refs.componentOne.handleFocus()
+    },
+    closeModal () {
+      this.isModalVisible = false
+    }
   }
 }
 </script>
@@ -20,11 +36,17 @@ export default {
       <div class="form-field price">298 zł</div>
       <div class="form-field rating">****** 123</div>
       <div class="form-field dates">
-        <input class="date-input" placeholder="first date">
+        <input class="date-input" placeholder="first date" @click="showModal">
         →
-        <input class="date-input" placeholder="second date">
+        <input class="date-input" placeholder="second date" @click="showModal">
       </div>
     </div>
+    <ReservationCalendar
+      autofocus
+      ref='componentOne'
+      v-show="isModalVisible"
+      @close="closeModal"
+    />
   </div>
 </template>
 
