@@ -1,12 +1,9 @@
-<template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-  </div>
-</template>
-
 <script>
+
 export default {
-  name: 'ReservationForm',
+  name: 'app',
+  components: {
+  },
   props: {
     price: Number,
     rating: Number,
@@ -17,20 +14,68 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
+<template>
+  <div class="reservation-form">
+    <div class="row">
+      <div class="form-field price">298 zł</div>
+      <div class="form-field rating">****** 123</div>
+      <div class="form-field dates">
+        <input class="date-input" placeholder="first date">
+        →
+        <input class="date-input" placeholder="second date">
+      </div>
+    </div>
+  </div>
+</template>
+
+<style>
+
+body {
+  margin-top: 100px;
+  font-family: Arial;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+.reservation-form {
+  height: 100%;
+  padding-bottom: 20px;
+  margin: 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-li {
+.row {
+  width: auto;
+  border: 1px solid grey;
+  padding-bottom: 20px;
+}
+.form-field {
+  padding: 5px;
+  width: 300px;
+  margin: 10px;
+  line-height: 20px;
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+}
+.price {
+  text-align: left;
+}
+.rating {
+  text-align: left;
+  font-size: 1em;
+  border-bottom: 1px solid grey;
+}
+.dates {
   display: inline-block;
-  margin: 0 10px;
+  border: 1px solid grey;
 }
-a {
-  color: #42b983;
+.date-input {
+  width: 120px;
+  border: none;
+  font-size: 0.6em;
 }
+
 </style>
